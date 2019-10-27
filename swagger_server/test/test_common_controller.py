@@ -16,17 +16,6 @@ from swagger_server.test import BaseTestCase
 class TestCommonController(BaseTestCase):
     """CommonController integration test stubs"""
 
-    def test_audio_get(self):
-        """Test case for audio_get
-
-        Get a random comment for user's audio
-        """
-        response = self.client.open(
-            '/BBT-Tech-S/To-Love-Camgirl/1.0.0/audio',
-            method='GET')
-        self.assert200(response,
-                       'Response body is : ' + response.data.decode('utf-8'))
-
     def test_audio_post(self):
         """Test case for audio_post
 
@@ -34,7 +23,7 @@ class TestCommonController(BaseTestCase):
         """
         body = Body1()
         response = self.client.open(
-            '/BBT-Tech-S/To-Love-Camgirl/1.0.0/audio',
+            '/BBT-Tech-S/To-Love-Camgirl/1.0.2/audio',
             method='POST',
             data=json.dumps(body),
             content_type='application/json')
@@ -48,7 +37,7 @@ class TestCommonController(BaseTestCase):
         """
         body = Body()
         response = self.client.open(
-            '/BBT-Tech-S/To-Love-Camgirl/1.0.0/info',
+            '/BBT-Tech-S/To-Love-Camgirl/1.0.2/info',
             method='POST',
             data=json.dumps(body),
             content_type='application/json')
@@ -58,10 +47,21 @@ class TestCommonController(BaseTestCase):
     def test_report_get(self):
         """Test case for report_get
 
-        
+        Get a random report based on user's information
         """
         response = self.client.open(
-            '/BBT-Tech-S/To-Love-Camgirl/1.0.0/report',
+            '/BBT-Tech-S/To-Love-Camgirl/1.0.2/report',
+            method='GET')
+        self.assert200(response,
+                       'Response body is : ' + response.data.decode('utf-8'))
+
+    def test_report_picture_get(self):
+        """Test case for report_picture_get
+
+        Get a picture of generated report
+        """
+        response = self.client.open(
+            '/BBT-Tech-S/To-Love-Camgirl/1.0.2/report/picture',
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -69,10 +69,10 @@ class TestCommonController(BaseTestCase):
     def test_text_get(self):
         """Test case for text_get
 
-        
+        Get a random piece of text based on user's information
         """
         response = self.client.open(
-            '/BBT-Tech-S/To-Love-Camgirl/1.0.0/text',
+            '/BBT-Tech-S/To-Love-Camgirl/1.0.2/text',
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))

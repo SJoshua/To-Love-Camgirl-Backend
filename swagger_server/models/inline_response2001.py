@@ -14,20 +14,35 @@ class InlineResponse2001(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, text: str=None):  # noqa: E501
+    def __init__(self, _property: str=None, score: int=None, description: str=None, url: str=None):  # noqa: E501
         """InlineResponse2001 - a model defined in Swagger
 
-        :param text: The text of this InlineResponse2001.  # noqa: E501
-        :type text: str
+        :param _property: The _property of this InlineResponse2001.  # noqa: E501
+        :type _property: str
+        :param score: The score of this InlineResponse2001.  # noqa: E501
+        :type score: int
+        :param description: The description of this InlineResponse2001.  # noqa: E501
+        :type description: str
+        :param url: The url of this InlineResponse2001.  # noqa: E501
+        :type url: str
         """
         self.swagger_types = {
-            'text': str
+            '_property': str,
+            'score': int,
+            'description': str,
+            'url': str
         }
 
         self.attribute_map = {
-            'text': 'text'
+            '_property': 'property',
+            'score': 'score',
+            'description': 'description',
+            'url': 'url'
         }
-        self._text = text
+        self.__property = _property
+        self._score = score
+        self._description = description
+        self._url = url
 
     @classmethod
     def from_dict(cls, dikt) -> 'InlineResponse2001':
@@ -41,22 +56,85 @@ class InlineResponse2001(Model):
         return util.deserialize_model(dikt, cls)
 
     @property
-    def text(self) -> str:
-        """Gets the text of this InlineResponse2001.
+    def _property(self) -> str:
+        """Gets the _property of this InlineResponse2001.
 
 
-        :return: The text of this InlineResponse2001.
+        :return: The _property of this InlineResponse2001.
         :rtype: str
         """
-        return self._text
+        return self.__property
 
-    @text.setter
-    def text(self, text: str):
-        """Sets the text of this InlineResponse2001.
+    @_property.setter
+    def _property(self, _property: str):
+        """Sets the _property of this InlineResponse2001.
 
 
-        :param text: The text of this InlineResponse2001.
-        :type text: str
+        :param _property: The _property of this InlineResponse2001.
+        :type _property: str
         """
 
-        self._text = text
+        self.__property = _property
+
+    @property
+    def score(self) -> int:
+        """Gets the score of this InlineResponse2001.
+
+
+        :return: The score of this InlineResponse2001.
+        :rtype: int
+        """
+        return self._score
+
+    @score.setter
+    def score(self, score: int):
+        """Sets the score of this InlineResponse2001.
+
+
+        :param score: The score of this InlineResponse2001.
+        :type score: int
+        """
+
+        self._score = score
+
+    @property
+    def description(self) -> str:
+        """Gets the description of this InlineResponse2001.
+
+
+        :return: The description of this InlineResponse2001.
+        :rtype: str
+        """
+        return self._description
+
+    @description.setter
+    def description(self, description: str):
+        """Sets the description of this InlineResponse2001.
+
+
+        :param description: The description of this InlineResponse2001.
+        :type description: str
+        """
+
+        self._description = description
+
+    @property
+    def url(self) -> str:
+        """Gets the url of this InlineResponse2001.
+
+
+        :return: The url of this InlineResponse2001.
+        :rtype: str
+        """
+        return self._url
+
+    @url.setter
+    def url(self, url: str):
+        """Sets the url of this InlineResponse2001.
+
+
+        :param url: The url of this InlineResponse2001.
+        :type url: str
+        """
+
+        self._url = url

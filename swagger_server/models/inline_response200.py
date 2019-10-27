@@ -14,20 +14,20 @@ class InlineResponse200(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, url: str=None):  # noqa: E501
+    def __init__(self, text: str=None):  # noqa: E501
         """InlineResponse200 - a model defined in Swagger
 
-        :param url: The url of this InlineResponse200.  # noqa: E501
-        :type url: str
+        :param text: The text of this InlineResponse200.  # noqa: E501
+        :type text: str
         """
         self.swagger_types = {
-            'url': str
+            'text': str
         }
 
         self.attribute_map = {
-            'url': 'url'
+            'text': 'text'
         }
-        self._url = url
+        self._text = text
 
     @classmethod
     def from_dict(cls, dikt) -> 'InlineResponse200':
@@ -41,22 +41,22 @@ class InlineResponse200(Model):
         return util.deserialize_model(dikt, cls)
 
     @property
-    def url(self) -> str:
-        """Gets the url of this InlineResponse200.
+    def text(self) -> str:
+        """Gets the text of this InlineResponse200.
 
 
-        :return: The url of this InlineResponse200.
+        :return: The text of this InlineResponse200.
         :rtype: str
         """
-        return self._url
+        return self._text
 
-    @url.setter
-    def url(self, url: str):
-        """Sets the url of this InlineResponse200.
+    @text.setter
+    def text(self, text: str):
+        """Sets the text of this InlineResponse200.
 
 
-        :param url: The url of this InlineResponse200.
-        :type url: str
+        :param text: The text of this InlineResponse200.
+        :type text: str
         """
 
-        self._url = url
+        self._text = text

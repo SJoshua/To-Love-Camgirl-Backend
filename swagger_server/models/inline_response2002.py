@@ -14,45 +14,20 @@ class InlineResponse2002(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, _property: str=None, confidence: int=None, character: str=None, score: int=None, type: str=None, description: str=None):  # noqa: E501
+    def __init__(self, image: str=None):  # noqa: E501
         """InlineResponse2002 - a model defined in Swagger
 
-        :param _property: The _property of this InlineResponse2002.  # noqa: E501
-        :type _property: str
-        :param confidence: The confidence of this InlineResponse2002.  # noqa: E501
-        :type confidence: int
-        :param character: The character of this InlineResponse2002.  # noqa: E501
-        :type character: str
-        :param score: The score of this InlineResponse2002.  # noqa: E501
-        :type score: int
-        :param type: The type of this InlineResponse2002.  # noqa: E501
-        :type type: str
-        :param description: The description of this InlineResponse2002.  # noqa: E501
-        :type description: str
+        :param image: The image of this InlineResponse2002.  # noqa: E501
+        :type image: str
         """
         self.swagger_types = {
-            '_property': str,
-            'confidence': int,
-            'character': str,
-            'score': int,
-            'type': str,
-            'description': str
+            'image': str
         }
 
         self.attribute_map = {
-            '_property': 'property',
-            'confidence': 'confidence',
-            'character': 'character',
-            'score': 'score',
-            'type': 'type',
-            'description': 'description'
+            'image': 'image'
         }
-        self.__property = _property
-        self._confidence = confidence
-        self._character = character
-        self._score = score
-        self._type = type
-        self._description = description
+        self._image = image
 
     @classmethod
     def from_dict(cls, dikt) -> 'InlineResponse2002':
@@ -66,127 +41,22 @@ class InlineResponse2002(Model):
         return util.deserialize_model(dikt, cls)
 
     @property
-    def _property(self) -> str:
-        """Gets the _property of this InlineResponse2002.
+    def image(self) -> str:
+        """Gets the image of this InlineResponse2002.
 
 
-        :return: The _property of this InlineResponse2002.
+        :return: The image of this InlineResponse2002.
         :rtype: str
         """
-        return self.__property
+        return self._image
 
-    @_property.setter
-    def _property(self, _property: str):
-        """Sets the _property of this InlineResponse2002.
+    @image.setter
+    def image(self, image: str):
+        """Sets the image of this InlineResponse2002.
 
 
-        :param _property: The _property of this InlineResponse2002.
-        :type _property: str
+        :param image: The image of this InlineResponse2002.
+        :type image: str
         """
 
-        self.__property = _property
-
-    @property
-    def confidence(self) -> int:
-        """Gets the confidence of this InlineResponse2002.
-
-
-        :return: The confidence of this InlineResponse2002.
-        :rtype: int
-        """
-        return self._confidence
-
-    @confidence.setter
-    def confidence(self, confidence: int):
-        """Sets the confidence of this InlineResponse2002.
-
-
-        :param confidence: The confidence of this InlineResponse2002.
-        :type confidence: int
-        """
-
-        self._confidence = confidence
-
-    @property
-    def character(self) -> str:
-        """Gets the character of this InlineResponse2002.
-
-
-        :return: The character of this InlineResponse2002.
-        :rtype: str
-        """
-        return self._character
-
-    @character.setter
-    def character(self, character: str):
-        """Sets the character of this InlineResponse2002.
-
-
-        :param character: The character of this InlineResponse2002.
-        :type character: str
-        """
-
-        self._character = character
-
-    @property
-    def score(self) -> int:
-        """Gets the score of this InlineResponse2002.
-
-
-        :return: The score of this InlineResponse2002.
-        :rtype: int
-        """
-        return self._score
-
-    @score.setter
-    def score(self, score: int):
-        """Sets the score of this InlineResponse2002.
-
-
-        :param score: The score of this InlineResponse2002.
-        :type score: int
-        """
-
-        self._score = score
-
-    @property
-    def type(self) -> str:
-        """Gets the type of this InlineResponse2002.
-
-
-        :return: The type of this InlineResponse2002.
-        :rtype: str
-        """
-        return self._type
-
-    @type.setter
-    def type(self, type: str):
-        """Sets the type of this InlineResponse2002.
-
-
-        :param type: The type of this InlineResponse2002.
-        :type type: str
-        """
-
-        self._type = type
-
-    @property
-    def description(self) -> str:
-        """Gets the description of this InlineResponse2002.
-
-
-        :return: The description of this InlineResponse2002.
-        :rtype: str
-        """
-        return self._description
-
-    @description.setter
-    def description(self, description: str):
-        """Sets the description of this InlineResponse2002.
-
-
-        :param description: The description of this InlineResponse2002.
-        :type description: str
-        """
-
-        self._description = description
+        self._image = image

@@ -14,30 +14,25 @@ class Body(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, name: str=None, gender: str=None, language: str=None):  # noqa: E501
+    def __init__(self, name: str=None, gender: str=None):  # noqa: E501
         """Body - a model defined in Swagger
 
         :param name: The name of this Body.  # noqa: E501
         :type name: str
         :param gender: The gender of this Body.  # noqa: E501
         :type gender: str
-        :param language: The language of this Body.  # noqa: E501
-        :type language: str
         """
         self.swagger_types = {
             'name': str,
-            'gender': str,
-            'language': str
+            'gender': str
         }
 
         self.attribute_map = {
             'name': 'name',
-            'gender': 'gender',
-            'language': 'language'
+            'gender': 'gender'
         }
         self._name = name
         self._gender = gender
-        self._language = language
 
     @classmethod
     def from_dict(cls, dikt) -> 'Body':
@@ -97,30 +92,3 @@ class Body(Model):
             )
 
         self._gender = gender
-
-    @property
-    def language(self) -> str:
-        """Gets the language of this Body.
-
-
-        :return: The language of this Body.
-        :rtype: str
-        """
-        return self._language
-
-    @language.setter
-    def language(self, language: str):
-        """Sets the language of this Body.
-
-
-        :param language: The language of this Body.
-        :type language: str
-        """
-        allowed_values = ["Chinese", "English"]  # noqa: E501
-        if language not in allowed_values:
-            raise ValueError(
-                "Invalid value for `language` ({0}), must be one of {1}"
-                .format(language, allowed_values)
-            )
-
-        self._language = language
