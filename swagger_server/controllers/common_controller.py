@@ -1,4 +1,5 @@
 import connexion
+import logging
 import random
 import base64
 import flask
@@ -15,7 +16,6 @@ from swagger_server.models.inline_response2002 import InlineResponse2002  # noqa
 from swagger_server import util
 from swagger_server import data
 
-
 def audio_post(body):  # noqa: E501
     """Upload user's recorded audio
 
@@ -26,13 +26,15 @@ def audio_post(body):  # noqa: E501
 
     :rtype: None
     """
+    name = flask.session.get("name")
     gender = flask.session.get("gender")
-    if gender not in ["male", "female", "unknown"]:
+    if not name or gender not in ["male", "female", "unknown"]:
         return '', 401
 
     if connexion.request.is_json:
         body = Body1.from_dict(connexion.request.get_json())  # noqa: E501
         if body.id:
+            logging.info("New audio %s from %s", body.id, name)
             flask.session["id"] = random.randint(0, len(data.report_list[gender]) - 1)
             return '', 200
     
@@ -55,6 +57,7 @@ def info_post(body):  # noqa: E501
             return '', 405
         flask.session["name"] = body.name
         flask.session["gender"] = body.gender
+        logging.info("New user %s (%s)", body.name, body.gender)
         return '', 200
     else:
         return '', 405
@@ -128,8 +131,9 @@ def report_picture_get():  # noqa: E501
     img_buffer = BytesIO()
     image.save(img_buffer, format='PNG')
     byte_data = img_buffer.getvalue()
+    logging.info("Generated report picture for user %s (%s)", name, gender)
     return {
-        "image": "data:image/png;base64," + base64.b64encode(byte_data)
+        "image": "data:image/png;base64," + base64.b64encode(byte_data).decode("utf-8")
     }, 200
 
 def text_get():  # noqa: E501
