@@ -10,7 +10,7 @@ def main():
     app.app.json_encoder = encoder.JSONEncoder
     app.app.secret_key = "super_secret_key"
     app.add_api('swagger.yaml', arguments={'title': 'To Love Webcasts'}, pythonic_params=True)
-    CORS(app.app)
+    CORS(app.app, supports_credentials = True)
     app.run(port=8080)
 
 
