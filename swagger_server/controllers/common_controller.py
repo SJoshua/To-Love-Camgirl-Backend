@@ -51,8 +51,9 @@ def info_post(body):  # noqa: E501
             return '', 405
         flask.session["name"] = body.name
         flask.session["gender"] = body.gender
-
-    return '', 200
+        return '', 200
+    else:
+        return '', 405
 
 
 def report_get():  # noqa: E501
