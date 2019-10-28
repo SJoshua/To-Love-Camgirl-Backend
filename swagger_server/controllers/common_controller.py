@@ -71,6 +71,7 @@ def report_get():  # noqa: E501
         return '', 401
     raw = data.report_list[gender][id]
     return {
+        "name": name,
         "property": raw[0],
         "score": raw[1],
         "description": raw[2],
@@ -87,12 +88,13 @@ def report_picture_get():  # noqa: E501
     :rtype: InlineResponse2002
     """
     # to-do
+    flask.session["name"] = "NAME"
+    gender = flask.session["gender"] = "female"
+
     name = flask.session.get("name")
     gender = flask.session.get("gender")
     id = flask.session.get("id")
-    if gender not in ["male", "female", "unknown"]:
-        return '', 401
-    if not (0 <= id < len(data.report_list[gender])):
+    if not name or gender not in ["male", "female", "unknown"] or not id or not (0 <= id < len(data.report_list[gender])):
         return '', 401
 
 
