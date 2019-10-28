@@ -29,7 +29,7 @@ def audio_post(body):  # noqa: E501
     if connexion.request.is_json:
         body = Body1.from_dict(connexion.request.get_json())  # noqa: E501
         if body.id:
-            flask.session.set("id", random.randint(0, len(data.report_list[gender]) - 1))
+            flask.session["id"] = random.randint(0, len(data.report_list[gender]) - 1)
             return '', 200
     
     return '', 405
@@ -49,8 +49,8 @@ def info_post(body):  # noqa: E501
         body = Body.from_dict(connexion.request.get_json())  # noqa: E501
         if not body.name or body.gender not in ["male", "female", "unknown"]:
             return '', 405
-        flask.session.set("name", body.name)
-        flask.session.set("gender", body.gender)
+        flask.session["name"] = body.name
+        flask.session["gender"] = body.gender
 
     return '', 200
 
