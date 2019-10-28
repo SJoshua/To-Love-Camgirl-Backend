@@ -67,7 +67,7 @@ def report_get():  # noqa: E501
     name = flask.session.get("name")
     gender = flask.session.get("gender")
     id = flask.session.get("id")
-    if not name or not (0 <= id < len(data.report_list[gender])) or gender not in ["male", "female", "unknown"]:
+    if not name or not id or not (0 <= id < len(data.report_list[gender])) or gender not in ["male", "female", "unknown"]:
         return '', 401
     raw = data.report_list[gender][id]
     return {
