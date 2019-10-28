@@ -75,7 +75,7 @@ def report_get():  # noqa: E501
         "score": raw[1],
         "description": raw[2],
         "content": raw[3],
-        "url": raw[4]
+        "url": data.base_url + raw[4]
     }, 200
 
 def report_picture_get():  # noqa: E501
@@ -94,7 +94,6 @@ def report_picture_get():  # noqa: E501
         return '', 401
     if not (0 <= id < len(data.report_list[gender])):
         return '', 401
-    return 'do some magic!'
 
 
 def text_get():  # noqa: E501
