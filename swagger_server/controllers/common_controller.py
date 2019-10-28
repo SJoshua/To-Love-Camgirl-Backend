@@ -1,7 +1,11 @@
 import connexion
 import random
+import base64
 import flask
 import six
+
+from PIL import Image, ImageDraw, ImageFont
+from io import BytesIO
 
 from swagger_server.models.body import Body  # noqa: E501
 from swagger_server.models.body1 import Body1  # noqa: E501
@@ -87,16 +91,46 @@ def report_picture_get():  # noqa: E501
 
     :rtype: InlineResponse2002
     """
-    # to-do
-    flask.session["name"] = "NAME"
-    gender = flask.session["gender"] = "female"
 
     name = flask.session.get("name")
     gender = flask.session.get("gender")
     id = flask.session.get("id")
     if not name or gender not in ["male", "female", "unknown"] or not id or not (0 <= id < len(data.report_list[gender])):
         return '', 401
+    raw = data.report_list[gender][id]
+    
+    img = "./template.jpg"
+    font = "./font.ttf"
+    color = "#7d9998"
+    heart = Image.open("heart.png")
 
+    image = Image.open(img)
+    draw = ImageDraw.Draw(image)
+    width = image.size[0]
+    font_1 = ImageFont.truetype(font, 32)
+    font_2 = ImageFont.truetype(font, 28)
+
+    text_width = font_1.getsize(name)[0]
+    draw.text(((width - text_width) / 2, 414), name, color, font_1)
+    draw.text((300, 566), raw[0], color, font_1)
+    image.paste(heart, (300, 644), mask = heart)
+    for i in range(1, raw[1]):
+        image.paste(heart, (300 + 50 * i, 644), mask = heart)
+    draw.text((300, 715), raw[2], color, font_1)
+    (text_2, text_3) = raw[3].split("\n")
+    text_width = font_2.getsize(text_2)[0]
+    draw.text(((width - text_width) / 2, 829), text_2, color, font_2)
+    text_width = font_2.getsize(text_3)[0]
+    draw.text((650 - text_width, 884), text_3, color, font_2)
+
+    image.save("output.png", "png")
+
+    img_buffer = BytesIO()
+    image.save(img_buffer, format='PNG')
+    byte_data = img_buffer.getvalue()
+    return {
+        "image": "data:image/png;base64," + base64.b64encode(byte_data)
+    }, 200
 
 def text_get():  # noqa: E501
     """Get a random piece of text based on user's information
