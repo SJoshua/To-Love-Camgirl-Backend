@@ -147,4 +147,6 @@ def text_get():  # noqa: E501
     gender = flask.session.get("gender")
     if gender not in ["male", "female", "unknown"]:
         return '', 401
-    return data.text_list[random.randint(0, len(data.text_list) - 1)], 200
+    return {
+        "text": data.text_list[random.randint(0, len(data.text_list) - 1)]
+    }, 200
