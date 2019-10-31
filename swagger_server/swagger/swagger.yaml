@@ -8,12 +8,10 @@ info:
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
-  version: 1.0.2
+  version: 1.0.3
 servers:
-- url: https://virtserver.swaggerhub.com/BBT-Tech-S/To-Love-Camgirl/1.0.2
+- url: https://virtserver.swaggerhub.com/BBT-Tech-S/To-Love-Camgirl/1.0.3
   description: SwaggerHub API Auto Mocking
-- url: http://server.sforest.in/bbtt/api
-  description: Test Server (Under construct)
 tags:
 - name: common
   description: APIs that you can call
@@ -39,8 +37,6 @@ paths:
       responses:
         200:
           description: ok
-        401:
-          description: You have to call /info first
         405:
           description: Invalid input
       x-openapi-router-controller: swagger_server.controllers.common_controller
@@ -80,7 +76,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200'
               example:
-                text: 2019爱上女主播
+                text: 2019爱上你主播
         401:
           description: You have to call /info first
       x-openapi-router-controller: swagger_server.controllers.common_controller
@@ -98,10 +94,11 @@ paths:
               schema:
                 $ref: '#/components/schemas/inline_response_200_1'
               example:
+                name: Joshua
                 property: 悠然仙姬音
                 score: 4
-                description: |-
-                  铁骑将军：热血骁勇，戎马一生
+                description: 铁骑将军：热血骁勇，戎马一生
+                content: |-
                   宁为百夫长，胜作一书生。
                   ——杨炯《从军行》
                 url: http://server.sforest.in/bbtt/static/comment.wav
@@ -154,6 +151,8 @@ components:
     inline_response_200_1:
       type: object
       properties:
+        name:
+          type: string
         property:
           type: string
         score:
@@ -162,12 +161,16 @@ components:
           type: integer
         description:
           type: string
+        content:
+          type: string
         url:
           type: string
       example:
         score: 1
+        name: name
         property: property
         description: description
+        content: content
         url: url
     inline_response_200_2:
       type: object

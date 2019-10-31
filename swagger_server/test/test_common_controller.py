@@ -23,7 +23,7 @@ class TestCommonController(BaseTestCase):
         """
         body = Body1()
         response = self.client.open(
-            '/BBT-Tech-S/To-Love-Camgirl/1.0.2/audio',
+            '/BBT-Tech-S/To-Love-Camgirl/1.0.3/audio',
             method='POST',
             data=json.dumps(body),
             content_type='application/json')
@@ -37,7 +37,7 @@ class TestCommonController(BaseTestCase):
         """
         body = Body()
         response = self.client.open(
-            '/BBT-Tech-S/To-Love-Camgirl/1.0.2/info',
+            '/BBT-Tech-S/To-Love-Camgirl/1.0.3/info',
             method='POST',
             data=json.dumps(body),
             content_type='application/json')
@@ -50,7 +50,7 @@ class TestCommonController(BaseTestCase):
         Get a random report based on user's information
         """
         response = self.client.open(
-            '/BBT-Tech-S/To-Love-Camgirl/1.0.2/report',
+            '/BBT-Tech-S/To-Love-Camgirl/1.0.3/report',
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -61,7 +61,7 @@ class TestCommonController(BaseTestCase):
         Get a picture of generated report
         """
         response = self.client.open(
-            '/BBT-Tech-S/To-Love-Camgirl/1.0.2/report/picture',
+            '/BBT-Tech-S/To-Love-Camgirl/1.0.3/report/picture',
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))
@@ -72,7 +72,7 @@ class TestCommonController(BaseTestCase):
         Get a random piece of text based on user's information
         """
         response = self.client.open(
-            '/BBT-Tech-S/To-Love-Camgirl/1.0.2/text',
+            '/BBT-Tech-S/To-Love-Camgirl/1.0.3/text',
             method='GET')
         self.assert200(response,
                        'Response body is : ' + response.data.decode('utf-8'))

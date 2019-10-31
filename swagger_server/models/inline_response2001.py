@@ -14,34 +14,44 @@ class InlineResponse2001(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, _property: str=None, score: int=None, description: str=None, url: str=None):  # noqa: E501
+    def __init__(self, name: str=None, _property: str=None, score: int=None, description: str=None, content: str=None, url: str=None):  # noqa: E501
         """InlineResponse2001 - a model defined in Swagger
 
+        :param name: The name of this InlineResponse2001.  # noqa: E501
+        :type name: str
         :param _property: The _property of this InlineResponse2001.  # noqa: E501
         :type _property: str
         :param score: The score of this InlineResponse2001.  # noqa: E501
         :type score: int
         :param description: The description of this InlineResponse2001.  # noqa: E501
         :type description: str
+        :param content: The content of this InlineResponse2001.  # noqa: E501
+        :type content: str
         :param url: The url of this InlineResponse2001.  # noqa: E501
         :type url: str
         """
         self.swagger_types = {
+            'name': str,
             '_property': str,
             'score': int,
             'description': str,
+            'content': str,
             'url': str
         }
 
         self.attribute_map = {
+            'name': 'name',
             '_property': 'property',
             'score': 'score',
             'description': 'description',
+            'content': 'content',
             'url': 'url'
         }
+        self._name = name
         self.__property = _property
         self._score = score
         self._description = description
+        self._content = content
         self._url = url
 
     @classmethod
@@ -54,6 +64,27 @@ class InlineResponse2001(Model):
         :rtype: InlineResponse2001
         """
         return util.deserialize_model(dikt, cls)
+
+    @property
+    def name(self) -> str:
+        """Gets the name of this InlineResponse2001.
+
+
+        :return: The name of this InlineResponse2001.
+        :rtype: str
+        """
+        return self._name
+
+    @name.setter
+    def name(self, name: str):
+        """Sets the name of this InlineResponse2001.
+
+
+        :param name: The name of this InlineResponse2001.
+        :type name: str
+        """
+
+        self._name = name
 
     @property
     def _property(self) -> str:
@@ -117,6 +148,27 @@ class InlineResponse2001(Model):
         """
 
         self._description = description
+
+    @property
+    def content(self) -> str:
+        """Gets the content of this InlineResponse2001.
+
+
+        :return: The content of this InlineResponse2001.
+        :rtype: str
+        """
+        return self._content
+
+    @content.setter
+    def content(self, content: str):
+        """Sets the content of this InlineResponse2001.
+
+
+        :param content: The content of this InlineResponse2001.
+        :type content: str
+        """
+
+        self._content = content
 
     @property
     def url(self) -> str:
